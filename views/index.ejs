@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body  class="bg-zinc-900 w-screen">
+    <div class="main ">
+      <form action="/create" method="post" class="form max-w-1/4 text-[24px] flex flex-col m-5 ">
+        <input name="title" class="text-white rounded-md border-3 border-green-200 outline-none mb-3 p-2 gap-6 font-bold" type="text" placeholder="Title" name="" id="">
+        <textarea name="detail" class="text-white border-3 rounded-md border-green-200 outline-none mb-3 p-2 gap-6 font-bold" name="" placeholder="Enter your Text" id=""></textarea>
+        <input class="text-white rounded-md bg-blue-600 text-[20px] cursor:pointer max-w-1/2 border-2 border-green-200 px-1 py-2 outline-none mb-3" type="submit" value="create task" placeholder="Submit">
+      </form>
+      <div class="notes flex flex-wrap gap-6">
+
+    <% if (files.length > 0) { %>
+
+        <% files.forEach(function(val) { %>
+
+            <div class="text-white rounded-md border-3 border-green-200 mb-3 p-2">
+
+                <textarea
+                    class="outline-none"
+                    placeholder="Your Task"
+                    id=""
+                ><%= val %></textarea>
+
+                <a class="text-start" href="">See more</a>
+
+            </div>
+
+        <% }) %>
+
+    <% } else { %>
+
+        <input
+            class="m-5 text-white text-bold text-[20px]"
+            type="text"
+            placeholder="No Task yet"
+        >
+
+    <% } %>
+
+</div>
+
+    </div>
+  </body>
+</html>
